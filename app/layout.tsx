@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import localFont from 'next/font/local'
+import Header from '../components/Header'
+import { Component } from "lucide-react";
 
+const wantedSans = localFont({src: '../public/fonts/WantedSansVariable.ttf', display: 'swap'})
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,7 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={wantedSans.className}>
+        <Header></Header><div className="bg-gradient-to-b  from-[#000000] to-[#645471] min-h-screen">{children}</div></body>
     </html>
   );
 }
